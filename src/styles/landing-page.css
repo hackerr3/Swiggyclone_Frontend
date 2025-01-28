@@ -1,0 +1,33 @@
+/* src/styles/landing-page.css */
+
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .welcome-section {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .welcome-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-section p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  

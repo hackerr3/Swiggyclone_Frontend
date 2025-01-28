@@ -1,0 +1,33 @@
+{
+  "name": "my-swiggy-app",
+  "version": "1.0.0",
+  "description": "A food delivery app clone",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "^3.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.7"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

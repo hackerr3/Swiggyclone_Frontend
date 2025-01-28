@@ -1,0 +1,120 @@
+/* Main container with flex layout */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Left side: Background slider */
+.background-slider {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+/* Right side: Registration form */
+.sign-in-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: #978ae1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Form heading */
+.sign-in-form h2 {
+  margin-bottom: 30px;
+}
+
+/* Row of form inputs */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Space between input boxes in the same row */
+  margin-bottom: 10px; /* Reduced space between rows */
+  width: 100%;
+  max-width: 450px;
+  position: relative; /* For positioning error messages */
+}
+
+/* Individual form group (label + input) */
+.form-group {
+  flex: 1;
+  position: relative; /* For positioning error messages */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  bottom: 5px; /* Position the error message at the bottom inside the input box */
+  left: 10px; /* Add a little padding from the left */
+  background: #ffffff; /* Background to blend with the input field */
+  padding: 2px 4px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 2; /* Ensure error message appears above other elements */
+}
+
+/* Submit button */
+.submit-button {
+  width: 100%;
+  max-width: 450px;
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Login message styling */
+.login-message {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-message a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-message a:hover {
+  text-decoration: underline;
+}

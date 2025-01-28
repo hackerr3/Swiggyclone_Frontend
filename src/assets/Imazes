@@ -1,0 +1,5 @@
+const images = [
+  "https://raw.githubusercontent.com/hackerr3/imazes/master/1.jpeg",
+  "https://raw.githubusercontent.com/hackerr3/RestarentImazes/master/Swiggywelcomepaze/imaze2.jpeg",
+  "https://raw.githubusercontent.com/hackerr3/RestarentImazes/master/Swiggywelcomepaze/imaze3.jpeg",
+];
