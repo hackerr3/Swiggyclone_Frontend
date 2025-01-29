@@ -25,17 +25,38 @@ function App() {
   const [messageType, setMessageType] = useState("info");
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Clear the specific error when the user starts typing
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "", // This will clear the specific error related to the input field
+    }));
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Trim mobile number to avoid spaces
+    const trimmedMobile = formData.mobile.trim();
+
+    if (trimmedMobile === "") {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        mobile: "Mobile number is required",
+      }));
+      return;
+    }
+
+    const updatedFormData = { ...formData, mobile: trimmedMobile };
+
     // Validate form and get all errors at once
-    const formErrors = validateForm(formData);
+    const formErrors = validateForm(updatedFormData);
 
     // If there are any errors, set them and stop form submission
     if (Object.keys(formErrors).length > 0) {
@@ -47,7 +68,7 @@ function App() {
     try {
       const response = await axios.post(
         "http://localhost:8084/api/v1/customers/register",
-        formData,
+        updatedFormData,
         {
           headers: {
             "Content-Type": "application/json",
@@ -56,17 +77,44 @@ function App() {
       );
       setMessage("Registration successful!");
       setMessageType("success");
+
+      // Show popup for success
+      alert("Registration Successful!");
+
+      // Clear the form and errors after success
+      resetFormData();
+
       console.log(response.data);
     } catch (error) {
       if (error.response) {
         console.log("Error Response:", error.response);
         setMessage(`Error ${error.response.status}: ${error.response.data || "Registration failed"}`);
         setMessageType("error");
+
+        // Show popup for error
+        alert(`Registration Failed! Error: ${error.response.status}`);
       } else {
         setMessage("An error occurred. Please try again.");
         setMessageType("error");
+
+        // Show popup for error
+        alert("An error occurred. Please try again.");
       }
     }
+  };
+
+  // Reset form data and errors
+  const resetFormData = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      country: "",
+      mobile: "",
+      password: "",
+      username: "",
+    });
+    setErrors({});
   };
 
   return (
@@ -196,4 +244,3 @@ function App() {
 }
 
 export default App;
-
